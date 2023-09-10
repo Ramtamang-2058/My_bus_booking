@@ -1,0 +1,114 @@
+body {
+    font-family: "Poppins";
+    background-color: #03045e;
+}
+
+.login {
+    margin: 100px;
+}
+
+.login h1 {
+    color: #caf0f8;
+    padding: 0 20px;
+    font-weight: bolder;
+    font-size: 36px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 50%;
+    height: 40px;
+    padding: 12px 20px;
+    margin-bottom: 50px;
+    margin-top: 12px;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    font-weight: 300;
+}
+
+label {
+    color: #caf0f8;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+button {
+    background-color: #0fafe9;
+    color: white;
+    padding: 25px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: block;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+button:hover {
+    opacity: 0.8;
+    background-color: #0077b6;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+    display: block;
+}
+
+.login p {
+    color: #caf0f8;
+    margin-left: 15px;
+    font-size: 14px;
+    margin-top: -16px;
+}
+
+.login a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #00b4d8;
+}
+
+/* Responsive with media query */
+@media screen and (max-width: 700px) {
+    .login {
+        margin: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 80%;
+        height: 25px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        width: 50%;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .login p {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 50%;
+    }
+}

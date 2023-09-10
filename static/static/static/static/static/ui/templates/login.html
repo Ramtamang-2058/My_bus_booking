@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hamro Bus</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static '../static/css/login.css' %}">
+</head>
+
+<body>
+    
+    <section className="login">
+        <!-- <form method="POST" action="" id="loginForm">
+            {% csrf_token %}
+             -->
+        <div id="Loginform"></div>
+            <!-- Receiving error and success messages and displaying in template -->
+            <div style="padding-top:10px;padding-bottom: 20px;">
+                {% for message in messages %}
+                {% if 'info' in message.tags %}
+                <p style="color: #FF0000; margin-left:100px; margin-top:-100px;padding:20px;">{{message}}</p>
+                {% endif %}
+                {% if 'success' in message.tags %}
+                <p style="color: #00FF00; margin-left:100px; margin-top:-100px;padding:20px;">{{message}}</p>
+                {% endif %}
+                {% endfor %}
+        </div>
+        <!-- </form> -->
+    </section>
+    <script src="{% static "./frontend/main.js" %}"></script> 
+</body>
+
+</html>

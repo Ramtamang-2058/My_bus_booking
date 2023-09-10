@@ -1,0 +1,25 @@
+.logo-list {
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo-list img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 50%; */
+    max-width: 75%;
+    padding: 15px;
+    transition: all 0.3s ease-in-out;
+    -webkit-filter: grayscale(100);
+    -moz-filter: grayscale(100);
+    filter: grayscale(100);
+}
+
+.logo-list img:hover {
+    filter: none;
+    transform: scale(1.2);
+    -webkit-filter: none;
+    -moz-filter: none;
+}

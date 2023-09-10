@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+{% block branding %}
+<h1>
+    <a style="color:black" href="">
+        <img style="height:40px;width:40px" src="https://cdn.discordapp.com/attachments/591659008775946240/949292011624726568/Untitled_design_3.png" alt="Hamro Bus" />
+        Hamro Bus Admin
+    </a>
+</h1>
+{% block extrahead %}
+    <link rel="shortcut icon" href="{% static '../static/images/Hamro_Bus.svg' %}" />
+    <style>
+    </style>
+{% endblock %}
+{% block extrastyle %}
+<link rel="stylesheet" type="text/css" href="{% static '../static/css/admin.css' %}">
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" type="text/css" href="{% static '../static/css/signup.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+
+<body>
+    <!-- Signup Form -->
+    <section class="signup">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <h1>Create new account</h1>
+            <div class="container">
+                <div>
+                    <label for="username"><b>USERNAME</b></label>
+                    {{form.username}}
+                </div>
+
+                <div>
+                    <label for="email"><b>EMAIL ADDRESS</b></label>
+                    {{form.email}}
+                </div>
+                <div>
+                    <label for="password1"><b>PASSWORD</b></label>
+                    {{form.password1}}
+                </div>
+
+                <div>
+                    <label for="password2"><b>CONFIRM PASSWORD</b></label>
+                    {{form.password2}}
+                </div>
+
+                <button type="submit">REGISTER NOW</button>
+            </div>
+            <!-- displaying erros that might occur during signup -->
+            <div class="signup-error">
+                {{form.errors}}
+            </div>
+
+            <div>
+                <p>Already have an account? <a href="/login/">Login Now</a></p>
+            </div>
+        </form>
+    </section>
+
+    <!-- script to display the hint for the input fields -->
+    <script>
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder = 'Username..';
+        form_fields[2].placeholder = 'Email..';
+        form_fields[3].placeholder = 'Enter password...';
+        form_fields[4].placeholder = 'Re-enter Password...';
+
+        for (var field in form_fields) {
+            form_fields[field].className += ' form-control'
+        }
+    </script>
+</body>
+
+</html>

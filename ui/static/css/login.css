@@ -1,0 +1,126 @@
+body {
+    font-family: "Poppins";
+    background-color: #ffffff;
+    background-image: url("https://media.discordapp.net/attachments/566219493756502016/963915222211522610/3540177.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login {
+    margin: 80px;
+    margin-bottom: 120px;
+    background: rgba(146, 227, 146, 0.3);
+    border-radius: 10px;
+}
+.loginform {
+    padding: 30px;
+    border-radius: 25px;
+}
+
+.login h1 {
+    color: #000000;
+    padding: 0 20px;
+    font-weight: bolder;
+    font-size: 36px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 50%;
+    height: 40px;
+    padding: 12px 20px;
+    margin-bottom: 50px;
+    margin-top: 12px;
+    display: block;
+    border: none;
+    border-radius: 5px;
+    font-weight: 300;
+}
+
+label {
+    color: #000000;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+button {
+    background-color: #0fafe9;
+    color: white;
+    padding: 25px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: block;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+button:hover {
+    opacity: 0.8;
+    background-color: #074769;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+    display: block;
+}
+
+.login p {
+    color: #37f2c3;
+    margin-left: 16px;
+    font-size: 15px;
+    line-height: 30px;
+    margin-top: -16px;
+}
+
+.login a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    color: #f1f6f7;
+}
+
+/* Responsive with media query */
+@media screen and (max-width: 700px) {
+    .login {
+        margin: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 80%;
+        height: 25px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        width: 50%;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    .login p {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 50%;
+    }
+}

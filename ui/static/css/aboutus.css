@@ -1,0 +1,28 @@
+/* CSS for about us page  */
+.about-us {
+    align-content: center;
+    width: 700px;
+    margin: 0 auto;
+    color: #000000;
+}
+
+.about-us-title h1 {
+    font-family: "Poppins";
+    font-weight: 700;
+    text-align: center;
+    font-style: normal;
+    font-size: 40px;
+    padding-bottom: 30px;
+    margin-top: 40px;
+}
+
+.about-us-para p {
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 35px;
+    font-style: normal;
+    display: block;
+    margin-bottom: 50px;
+}

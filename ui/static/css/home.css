@@ -1,0 +1,47 @@
+#root {
+    background-color: #ffffff;
+    font-family: "Poppins";
+    /* color: #caf0f8; */
+}
+
+#routetable {
+    color: #caf0f8;
+}
+
+.home{
+    /* background-color: #caf0f8; */
+    background-image: url("../images/Cover.png");
+    /* color: #caf0f8; */
+}
+#search-box{
+    /* background-color: #caf0f8; */
+    /* background-image: url('https://images.unsplash.com/photo-1592285896110-8d88b5b3a5d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80'); */
+    /* margin: 30px; */
+    height: 600px;
+    background-image: url("../images/Cover.png");
+    /* background-repeat: no-repeat;
+    background-size: aut */
+    /* padding: 70px; */
+    color: #ffffff;
+    /* display: flex;
+    align-items: center; */
+    /* color:#caf0f8 */
+}
+/* .search-button{
+    width: 500px;
+    color: #caf0f8;
+} */
+.search-comp{
+    margin: 8px;
+}
+/* .result-row{
+    padding: 50px;
+    width: 100%;
+    height: 100%;
+} */
+/* .footer{
+    position: fixed;
+
+    bottom: 0;
+    width: 100%;
+} */
