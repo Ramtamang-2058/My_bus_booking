@@ -258,6 +258,7 @@ def save_bus(request):
     resp = {'status':'failed','msg':''}
     print("frist i am here"+request.method)
     if request.method == 'POST':
+        
         if (request.POST['id']).isnumeric():
             bus = Bus.objects.get(pk=request.POST['id'])
             print("first i am here"+ request.method)

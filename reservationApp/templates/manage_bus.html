@@ -49,12 +49,13 @@
 </div>
 <script>
     $(function () {
-        $('#category').select2({
-            width: "100%",
-            placeholder: "Please Select Category Here",
-            dropdownParent: $('#uni_modal')
-        })
+        // $('#category').select2({
+        //     width: "100%",
+        //     placeholder: "Please Select Category Here",
+        //     dropdownParent: $('#uni_modal')
+        // })
         $('#bus-form').submit(function (e) {
+            console.log("hello..............")
             e.preventDefault();
             var _this = $(this)
             $('.err-msg').remove();
@@ -68,7 +69,7 @@
             start_loader();
             $.ajax({
                 url: "{% url 'save-bus' %}",
-                url: "{% url 'save-bus' %}",
+             
 
                 data: new FormData($(this)[0]),
                 cache: false,
