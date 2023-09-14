@@ -52,7 +52,7 @@ def home(request):
     context['page_title'] = 'Home'
     context['buses'] = Bus.objects.count()
     context['categories'] = Category.objects.count()
-    context['upcoming_trip'] = Schedule.objects.filter(status= 1, departureTime__gt = datetime.today()).count()
+    context['upcoming_trip'] = Schedule.objects.filter(status= 1, schedule__gt = datetime.today()).count()
     return render(request, 'home.html',context)
 
 def registerUser(request):

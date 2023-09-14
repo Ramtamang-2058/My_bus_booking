@@ -33,7 +33,8 @@ admin.site.index_title = "Welcome to HamroBus Portal"
 
 urlpatterns = [
     path('admin/', include('reservationApp.urls')),
-    path('my/admin', admin.site.urls),  
+        path('admin/', include('reservationApp.urls')),
+
     # path('', login_required((homeView),login_url='login')),
     path('', homeView),
     path('home', homeView,name='home'),

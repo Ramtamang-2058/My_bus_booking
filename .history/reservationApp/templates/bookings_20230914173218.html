@@ -46,7 +46,7 @@
                             <td class="px-2 py-1 align-middle text-end">{{ booked.bookedSeat1|intcomma }}, {{ booked.bookedSeat2|intcomma }}</td>
                             <td class="px-2 py-1 align-middle text-end">{{ booked.amount|intcomma }}</td>
                             <td class="px-1 py-1 align-middle text-center">
-                                {% if booked.payment == False %}
+                                {% if booked.status == '1' %}
                                 <span class="badge bg-primary bg-gradient rounded-pill px-2">Pending</span> {% else %}
                                 <span class="badge bg-success bg-gradient rounded-pill px-2">Paid</span> {% endif %}
                             </td>

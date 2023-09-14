@@ -7,9 +7,9 @@
 <div class="container-fluid">
     <div class="d-flex w-100">
         <div class="col-5 border">
-            <b>Route Code</b>
+            <b>Schedule Code</b>
         </div>
-        <div class="col-7 border px-2">{{ booking.routeId }}</div>
+        <div class="col-7 border px-2">{{ booking.routeid }}</div>
     </div>
     <div class="d-flex w-100">
         <div class="col-5 border">
@@ -21,31 +21,31 @@
         <div class="col-5 border">
             <b>Trip Schedule</b>
         </div>
-        <div class="col-7 border px-2">{{ booking.departureDate }}, {{ booking.departureTime }}</div>
+        <div class="col-7 border px-2">{{ booking.departureDate }}{{ booking.departureTime }}</div>
     </div>
     <div class="d-flex w-100">
         <div class="col-5 border">
-            <b>Trip Location</b>
+            <b>Booking Ref. Code</b>
         </div>
-        <div class="col-7 border px-2">{{ booking.departureLocation }}, {{ booking.destinationLocation }}</div>
+        <div class="col-7 border px-2">{{ booking.code }}</div>
     </div>
     <div class="d-flex w-100">
         <div class="col-5 border">
             <b>Booked By</b>
         </div>
-        <div class="col-7 border px-2">{{ booking.username }}</div>
+        <div class="col-7 border px-2">{{ booking.name }}</div>
     </div>
     <div class="d-flex w-100">
         <div class="col-5 border">
             <b>Seats</b>
         </div>
-        <div class="col-7 border px-2">{{ booking.bookedSeat1 }},{{ booking.bookedSeat2 }}</div>
+        <div class="col-7 border px-2">{{ booking.seats }}</div>
     </div>
     <div class="d-flex w-100">
         <div class="col-5 border">
             <b>Total Cost</b>
         </div>
-        <div class="col-7 border px-2">{{ booking.amount|intcomma }}</div>
+        <div class="col-7 border px-2">{{ booking.total_payable|intcomma }}</div>
     </div>
     <div class="clear-fix py-3"></div>
     <div class="text-end">
