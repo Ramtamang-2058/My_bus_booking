@@ -36,20 +36,20 @@
                         {% for schedule in schedules %}
                         <tr>
                             <td class="px-2 py-1 align-middle">{{ forloop.counter }}</td>
-                            <td class="px-2 py-1 align-middle">{{ schedule.schedule|date:"Y-m-d h:i A" }}</td>
+                            <td class="px-2 py-1 align-middle">{{ schedule.departureDate|date }}</td>
                             <td class="px-2 py-1 align-middle">
                                 <div class="lh-1">
-                                    <div>{{ schedule.bus.bus_number }}</div>
+                                    <div>{{ schedule.name}}</div>
                                     <small class="text-muted">{{ schedule.bus.category }}</small>
                                 </div>
                             </td>
                             <td class="px-2 py-1 align-middle">
                                 <div class="lh-1">
-                                    <div>{{ schedule.depart }}</div>
-                                    <div>{{ schedule.destination }}</div>
+                                    <div>{{ schedule.departureLocation }}</div>
+                                    <div>{{ schedule.destinationLocation }}</div>
                                 </div>
                             </td>
-                            <td class="px-2 py-1 align-middle">{{ schedule.fare|intcomma }}</td>
+                            <td class="px-2 py-1 align-middle">{{ schedule.price|intcomma }}</td>
                             <td class="px-1 py-1 align-middle text-center">
                                 {% if schedule.status == '1' %}
                                 <span class="badge bg-primary bg-gradient rounded-pill px-2">Active</span> {% else %}

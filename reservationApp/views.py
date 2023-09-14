@@ -9,7 +9,9 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from reservationApp.forms import UserRegistration, UpdateProfile, UpdatePasswords, SaveCategory, SaveLocation, SaveBus, SaveSchedule, SaveBooking, PayBooked
-from reservationApp.models import Booking, Category, Location, Bus, Schedule
+from reservationApp.models import Category, Location, Bus
+from backend.models import Route as Schedule
+from backend.models import Ticket as Booking
 from cryptography.fernet import Fernet
 from django.conf import settings
 import base64

@@ -3,6 +3,7 @@ from django.db import models
 from backend.locationlist import LocationChoices
 from django.contrib.auth import get_user_model
 import datetime
+from django.utils import timezone
 from django.core.validators import MinValueValidator
 
 VEHICLE_CHOICES = [
@@ -12,6 +13,7 @@ VEHICLE_CHOICES = [
 ]
 # Create your models here.
 class Route(models.Model):
+    code = models.CharField(max_length=100, null=True, blank=True)
     name = models.CharField(max_length=100)
     departureLocation = models.CharField(max_length=50,choices=LocationChoices,default="Kathmandu")
     destinationLocation = models.CharField(max_length=50,choices=LocationChoices,default="Pokhara")
@@ -19,6 +21,9 @@ class Route(models.Model):
     arrivalTime = models.TimeField(default='00:00:00')
     departureDate = models.DateField(validators=[MinValueValidator(datetime.date.today)],default=datetime.date.today)
     price = models.IntegerField()
+    status = models.CharField(max_length=2, choices=(('1','Active'),('2','Cancelled')), default=1)
+    date_created = models.DateTimeField(default=timezone.now)
+    date_updated = models.DateTimeField(auto_now=True)
     vehicleID = models.CharField(max_length=50)
     seat1 = models.BooleanField(default=False)
     seat2 = models.BooleanField(default=False)
@@ -71,6 +76,7 @@ class NewsLetter(models.Model):
         return self.email
 
 class Ticket(models.Model):
+    code = models.CharField(max_length=100, null=True, blank=True)
     username = models.CharField(max_length=50,default="dibas")
     routeId = models.IntegerField()
     bookedSeat1 = models.CharField(max_length=10,default="")
@@ -84,6 +90,9 @@ class Ticket(models.Model):
     departureDate = models.DateField()
     vehicleID = models.CharField(max_length=50)
     booked_date = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=2, choices=(('1','Pending'),('2','Paid')), default=1, null=True, blank=True)
+    date_created = models.DateTimeField(default=timezone.now, null=True, blank=True)
+    date_updated = models.DateTimeField(auto_now=True, null=True, blank=True)
 
     
     

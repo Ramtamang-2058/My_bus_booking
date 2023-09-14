@@ -5,7 +5,10 @@ from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm, UserC
 
 from django.contrib.auth.models import User
 from more_itertools import quantify
-from .models import Category, Location, Bus, Schedule, Booking
+from .models import Category, Location, Bus, Booking
+
+from backend.models import Route as Schedule
+
 from datetime import datetime
 
 class UserRegistration(UserCreationForm):
@@ -153,65 +156,33 @@ class SaveBus(forms.ModelForm):
         raise forms.ValidationError(f"{bus_number} bus Already Exists.")
 
 class SaveSchedule(forms.ModelForm):
-    code = forms.CharField(max_length="250")
-    bus = forms.IntegerField()
-    depart = forms.IntegerField()
-    destination = forms.IntegerField()
-    fare = forms.FloatField(min_value=0,max_value=999999)
-    schedule = forms.CharField(max_length="250")
-    status = forms.ChoiceField(choices=[('1','Active'),('2','Cancelled')])
-
     class Meta:
         model = Schedule
-        fields = ('code','bus','depart','destination','fare','schedule','status')
-    def clean_code(self):
-        id = self.instance.id if self.instance.id else 0
-        if id > 0:
-            try:
-                schedule = Schedule.objects.get(id = id)
-                return schedule.code
-            except:
-                code= ''
-        else:
-            code= ''
-        pref = datetime.today().strftime('%Y%m%d')
-        code = str(1).zfill(4)
-        while True:
-            sched = Schedule.objects.filter(code=str(pref + code)).count()
-            if sched > 0:
-                code = str(int(code) + 1).zfill(4)
-            else:
-                code = str(pref + code)
-                break
-        return code
+        fields = ('code', 'name', 'departureLocation', 'destinationLocation', 'price', 'departureDate', 'departureTime', 'status')
 
-    def clean_bus(self):
-        bus_id = self.cleaned_data['bus']
+    # You can specify input formats for date and time fields
+    widgets = {
+        'departureDate': forms.DateInput(attrs={'type': 'date'}),
+        'departureTime': forms.TimeInput(attrs={'type': 'time'}),
+    }
 
-        try:
-            bus = Bus.objects.get(id=bus_id)
-            return bus
-        except:
-            raise forms.ValidationError("Bus is not recognized.")
+    # Use DecimalField for price
+    price = forms.DecimalField(min_value=0, max_value=999999)
+
+    # Use TimeField for time input
+    departureTime = forms.TimeField(input_formats=['%H:%M'])
+
+    def clean_departureTime(self):
+        departure_time = self.cleaned_data.get('departureTime')
+        if departure_time:
+            # You can access the parsed time directly
+            return departure_time
+
+        raise forms.ValidationError("Invalid time format. Use HH:MM.")
     
-    def clean_depart(self):
-        location_id = self.cleaned_data['depart']
 
-        try:
-            location = Location.objects.get(id=location_id)
-            return location
-        except:
-            raise forms.ValidationError("Depart is not recognized.")
+
     
-    def clean_destination(self):
-        location_id = self.cleaned_data['destination']
-
-        try:
-            location = Location.objects.get(id=location_id)
-            return location
-        except:
-            raise forms.ValidationError("Destination is not recognized.")
-
 class SaveBooking(forms.ModelForm):
     code = forms.CharField(max_length="250")
     schedule = forms.CharField(max_length="250")
