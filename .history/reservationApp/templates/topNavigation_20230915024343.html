@@ -61,7 +61,7 @@
                     {% if user.id %} {% if user.profile.user_type == 1 %} {% endif %}
                     <li class="nav-item me-3 me-lg-0">
                         <a class="nav-link" href="{% url 'profile' %}">
-                            <span class="me-1"><img src="https://th.bing.com/th/id/OIP.Gfp0lwE6h7139625a-r3aAHaHa?pid=ImgDet&rs=1" alt="User Avatar" id="user-avatar" class="img-thumbnail rounded-circle"></span>{{request.user}}, {{ user.first_name }} {{user.last_name}}
+                            <span class="me-1"><img src="{% static '%}" alt="User Avatar" id="user-avatar" class="img-thumbnail rounded-circle"></span>Howdy, {{ user.first_name }} {{user.last_name}}
                         </a>
                         <!-- <a class="nav-link" href="{% url 'logout' %}">Logout</a> -->
                     </li>
