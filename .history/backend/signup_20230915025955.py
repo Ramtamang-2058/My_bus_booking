@@ -49,7 +49,7 @@ def signup_view(request):
                             mail_subject, message, 'dibas@dibassigdel.com.np',to=[to_email]
                 )
                 # email.send()
-                # EmailVerify.objects.create(username=user,userid=uid,token=token)
+                EmailVerify.objects.create(username=user,userid=uid,token=token)
                 # return HttpResponse('Please confirm your email address to complete the registration')
                 return redirect('login')
             

@@ -28,7 +28,7 @@ def signup_view(request):
             form = SignupForm(request.POST)
             if form.is_valid():
                 user = form.save(commit=False)
-                user.is_active = True
+                user.is_active = False
                 user.save()
                 userid = User.objects.get(username=user).pk
                 username = form.cleaned_data.get('username')
@@ -48,10 +48,10 @@ def signup_view(request):
                 email = EmailMessage(
                             mail_subject, message, 'dibas@dibassigdel.com.np',to=[to_email]
                 )
-                # email.send()
-                # EmailVerify.objects.create(username=user,userid=uid,token=token)
-                # return HttpResponse('Please confirm your email address to complete the registration')
-                return redirect('login')
+                email.send()
+                EmailVerify.objects.create(username=user,userid=uid,token=token)
+                return HttpResponse('Please confirm your email address to complete the registration')
+                # return redirect('login')
             
         context = {'form':form}
         

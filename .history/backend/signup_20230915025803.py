@@ -50,7 +50,7 @@ def signup_view(request):
                 )
                 # email.send()
                 # EmailVerify.objects.create(username=user,userid=uid,token=token)
-                # return HttpResponse('Please confirm your email address to complete the registration')
+                return HttpResponse('Please confirm your email address to complete the registration')
                 return redirect('login')
             
         context = {'form':form}
