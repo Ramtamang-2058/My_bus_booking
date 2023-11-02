@@ -21,6 +21,15 @@ class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
         fields = '__all__'
+    def validate(self, data):
+        # Add your validation logic here
+        # For example, you can check if 'amount' is greater than 0
+        if data['amount'] <= 0:
+            raise serializers.ValidationError("Amount must be greater than 0")
+
+        # You can perform similar validations for other fields
+
+        return data
 
 class NewsLetterSerializer(serializers.ModelSerializer):
     class Meta:

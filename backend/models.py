@@ -88,7 +88,7 @@ class Ticket(models.Model):
     departureTime = models.TimeField(default='00:00:00')
     arrivalTime = models.TimeField(default='00:00:00')
     departureDate = models.DateField()
-    vehicleID = models.CharField(max_length=50)
+    vehicleID = models.CharField(max_length=50, null=True, blank=True)
     booked_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=2, choices=(('1','Pending'),('2','Paid')), default=1, null=True, blank=True)
     date_created = models.DateTimeField(default=timezone.now, null=True, blank=True)

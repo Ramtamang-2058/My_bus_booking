@@ -21,6 +21,12 @@ class LoggedUserViewSet(viewsets.ModelViewSet):
 class TicketViewSet(viewsets.ModelViewSet):
     serializer_class = TicketSerializer
     queryset = Ticket.objects.all()
+    def create(self, request, *args, **kwargs):
+        # Print the incoming data
+        print(request.data)
+
+        # Continue with the usual create process
+        return super().create(request, *args, **kwargs)
 
 class NewsLetterViewSet(viewsets.ModelViewSet):
     serializer_class = NewsLetterSerializer
